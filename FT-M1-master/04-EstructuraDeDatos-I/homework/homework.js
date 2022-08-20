@@ -13,11 +13,16 @@ Secuencia:  0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...
 
 Como ejercicio adicional y completamente opcional, al terminar de resolver este problema pueden intentar definir funciones que logren los mismos resultados pero de manera iterativa.
 */
-
 function nFactorial(n) {
+  if(n == 1){return n}
+    return n * nFactorial(n - 1) 
 }
 
 function nFibonacci(n) {
+  if(n == 1){return 1}
+  if(n == 0){return 0}
+  else
+  return nFibonacci(n - 2) + nFibonacci(n - 1)
 }
 
 /*
@@ -28,9 +33,99 @@ Implementar la clase Queue, sabiendo que es una estructura de tipo FIFO, donde e
 
 Pueden utilizar class o función constructora.
 */
+// class Queue {constructor(){this.array = []}
+//   enqueue(value){this.array.push(value)} 
+//   dequeue(){
+//     if(this.array.length == 0){return undefined}
+//     else{
+//           return this.array.shift()}}
+//   size(){return this.array.length}
+// }
 
-function Queue() {
 
+// ****************************************************************************************************
+
+
+// function Nodo (data){
+//   this.data = data
+//   this.next = null
+// }
+// function Queue (value){
+//   this.head = null
+//  }
+// Queue.prototype.enqueue = function (data){
+//   let nodo = new Nodo(data)
+//   if(this.head == null){
+//     this.head = nodo
+//     return// nodo
+//   }
+//   let current = this.head
+//   while (current.next != null){
+//        current = current.next
+//   }
+//      current.next = nodo
+//      return// nodo  
+// }
+// Queue.prototype.dequeue = function (){
+//   let guardaNodo = this.head
+//   let current = this.head
+//   if(!current){
+//     return undefined
+//   }
+//   this.head = current.next
+//     return guardaNodo.data
+// }
+// Queue.prototype.size = function (){
+//   let current = this.head
+//   let contador = 0
+//   if (!current){return contador}
+//   while (current != null){
+//     contador ++
+//     current = current.next
+//   } return contador
+// }
+
+//************************************************************************************************* */
+class Nodo{ 
+constructor(data){
+  this.data = data
+  this.next = null
+}}
+class Queue {
+  constructor (){
+  this.head = null
+  }
+  enqueue (data){
+  let nodo = new Nodo(data)
+  if(this.head == null){
+    this.head = nodo
+    return nodo
+  }
+  let current = this.head
+  while (current.next != null){
+       current = current.next
+  }
+     current.next = nodo
+     return nodo  
+}
+  dequeue (){
+  let guardaNodo = this.head
+  let current = this.head
+  if(!current){
+    return undefined
+  }
+  this.head = current.next
+    return guardaNodo.data
+}
+  size (){
+  let current = this.head
+  let contador = 0
+  if (!current){return contador}
+  while (current != null){
+    contador ++
+    current = current.next
+  } return contador
+}
 }
 
 // No modifiquen nada debajo de esta linea
